@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './ui/layout/layout.module';
+import { AdminChatModule } from './widget/admin-chat/admin-chat.module';
+import { ChatService } from './service/chat.service';
+import { AbstractAdminChatService } from './widget/admin-chat/abstract-admin-chat-service';
 
 @NgModule({
   declarations: [
@@ -13,9 +16,17 @@ import { LayoutModule } from './ui/layout/layout.module';
     BrowserModule,
     AppRoutingModule,
 
+    AdminChatModule.forRoot({
+      enabled: true
+    }),
     LayoutModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AbstractAdminChatService,
+      useExisting: ChatService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

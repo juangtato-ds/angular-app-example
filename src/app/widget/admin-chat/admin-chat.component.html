@@ -1,0 +1,12 @@
+<div id="admin-chat">
+  <ng-container *ngIf="config.enabled; else disabled">
+    Escribe un mensaje como administrador:
+    <textarea [(ngModel)]="message"></textarea>
+    <button type="button" (click)="sendMessage()">
+      Enviar
+    </button>
+  </ng-container>
+  <ng-template #disabled>
+    Widget desactivado!!
+  </ng-template>
+</div>
