@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+// https://meyerweb.com/eric/tools/css/reset/
+@import 'scss/reset';
+
+.layout {
+  min-height: 100vh;
+  width: 100vw;
+
+  .layout-header {
+    height: 50px;
+    background-color: orange;
+  }
+
+  .layout-sidenav {
+    min-height: calc(100vh - 50px);
+    display: flex;
+
+    .layout-sidenav-menu {
+      width: 300px;
+      background-color: lightcoral;
+    }
+
+    main {
+      min-height: calc(100vh - 50px);
+      background-color: lightcyan;
+      flex-grow: 1;
+    }
+  }
+}

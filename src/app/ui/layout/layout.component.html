@@ -1,0 +1,17 @@
+<div class="layout">
+  <div class="layout-header">
+    <app-layout-header>
+      <ng-content select="[headerRouting]"></ng-content>
+    </app-layout-header>
+  </div>
+  <div class="layout-sidenav">
+    <div class="layout-sidenav-menu">
+      <app-side-nav-menu></app-side-nav-menu>
+    </div>
+    <main>
+      <ng-content select="[pageHeader]"></ng-content>
+      <router-outlet></router-outlet>
+      <ng-content select="[pageFooter]"></ng-content>
+    </main>
+  </div>
+</div>
