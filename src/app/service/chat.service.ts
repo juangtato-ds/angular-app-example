@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AbstractAdminChatService } from '../widget/admin-chat/abstract-admin-chat-service';
+import { MessageFilterService } from '../module/chat/service/message-filter.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService extends AbstractAdminChatService {
 
-  constructor() {
+  constructor(
+    private filter: MessageFilterService
+  ) {
     super();
   }
 
