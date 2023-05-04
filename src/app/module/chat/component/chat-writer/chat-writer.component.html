@@ -1,0 +1,10 @@
+<app-page-section>
+  <app-page-section-title>Escribe tu mensaje</app-page-section-title>
+  <div class="">
+    <textarea [formControl]="message"></textarea>
+  </div>
+  <div class="">
+    <button type="button" (click)="clear()">Limpiar</button>
+    <button type="button" (click)="send()">Enviar</button>
+  </div>
+</app-page-section>

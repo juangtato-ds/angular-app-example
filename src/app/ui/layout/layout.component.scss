@@ -1,0 +1,12 @@
+app-layout-header {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+
+  justify-content: flex-end;
+  padding-right: 10px;
+
+}

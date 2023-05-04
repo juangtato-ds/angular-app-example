@@ -1,0 +1,39 @@
+<app-page-title>Configura Identidad</app-page-title>
+
+<ng-container *ngIf="identity; else loading">
+  <app-page-section>
+    <app-page-section-title>Rellena datos (Template Driven)</app-page-section-title>
+
+    <app-template-driven-identity-form [data]="identity"
+      (updateIdentity)="updateIdentity($event)"></app-template-driven-identity-form>
+  </app-page-section>
+
+  <app-page-section>
+    <app-page-section-title>Rellena datos (Reactive - plain)</app-page-section-title>
+
+    <app-plain-identity-form [data]="identity" (updateIdentity)="updateIdentity($event)"></app-plain-identity-form>
+  </app-page-section>
+
+  <app-page-section>
+    <app-page-section-title>Rellena datos (Reactive - FormBuilder)</app-page-section-title>
+
+    <app-fb-identity-form [data]="identity" (updateIdentity)="updateIdentity($event)"></app-fb-identity-form>
+  </app-page-section>
+
+  <app-page-section>
+    <app-page-section-title>Rellena datos (Reactive - By Service)</app-page-section-title>
+
+    <app-identity-form [data]="identity" (updateIdentity)="updateIdentity($event)"></app-identity-form>
+  </app-page-section>
+
+  <app-page-section>
+    <app-page-section-title>Rellena datos (Reactive - With Attributes)</app-page-section-title>
+
+    <app-identity-with-attributes-form [data]="identity" (updateIdentity)="updateIdentity($event)"></app-identity-with-attributes-form>
+  </app-page-section>
+</ng-container>
+<ng-template #loading>
+  <div style="text-align: center;">
+    Trabajando...
+  </div>
+</ng-template>

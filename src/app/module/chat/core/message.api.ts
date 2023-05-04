@@ -1,22 +1,18 @@
-export enum AuthorRole {
-  ADMIN = 'admin',
-  USER = 'user',
-  ANONYMOUS = 'anonymous'
-}
+import { UserRole } from "src/app/core/user-identity.model";
 
 export interface AnonymousAuthor {
   id: string;
-  role: AuthorRole.ANONYMOUS
+  role: UserRole.ANONYMOUS
 }
 
 export interface Author {
   id: string;
-  role: AuthorRole.USER;
+  role: UserRole.USER;
   name: string;
 }
 
 export interface AdminAuthor {
-  role: AuthorRole.ADMIN
+  role: UserRole.ADMIN
 }
 
 export type MessageAuthor = Author | AdminAuthor | AnonymousAuthor;

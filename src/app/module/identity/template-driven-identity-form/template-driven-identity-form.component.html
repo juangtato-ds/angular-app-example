@@ -1,0 +1,34 @@
+<form>
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" [(ngModel)]="data.name"  name="name" required="required"/>
+    <div class="feedback">
+      Campo obligatorio
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Role</label>
+    <select [(ngModel)]="data.role" name="role">
+      <option>--</option>
+      <option *ngFor="let r of roles" [value]="r">{{ r | titlecase }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Apellidos</label>
+    <input type="text" name="info.surname" [(ngModel)]="data.info.surname"/>
+  </div>
+  <div class="form-group">
+    <label>Alias</label>
+    <input type="text" name="info.alias" [(ngModel)]="data.info.alias" />
+  </div>
+  <div class="form-group">
+    <label>Edad</label>
+    <input type="number" name="info.age" [(ngModel)]="data.info.age" />
+  </div>
+
+  <div>
+    <button type="button" (click)="cancel()">Cancelar</button>
+    &nbsp;
+    <button (click)="save()">Guardar</button>
+  </div>
+</form>

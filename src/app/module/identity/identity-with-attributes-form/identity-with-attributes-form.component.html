@@ -1,0 +1,62 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" formControlName="name" />
+    <div class="feedback">
+      Debes indicar un nombre.
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Role (selected: {{ form.value.role }})</label>
+    <select formControlName="role">
+      <option value="">--</option>
+      <option *ngFor="let r of roles" [value]="r">{{ r | titlecase }}</option>
+    </select>
+    <div class="feedback">
+      Debes seleccionar un rol.
+    </div>
+  </div>
+  <div class="form-group" formArrayName="attributes">
+    <label>Atributos</label>
+    <ng-container *ngFor="let attr of attributes.controls; let i = index">
+      <input type="text" [formControlName]="i" />
+      <button type="button" (click)="removeAttribute(i)">-</button>
+      <br/>
+    </ng-container>
+    <div>
+      <button type="button" (click)="addAttribute()">+ atributo</button>
+    </div>
+  </div>
+  <ng-container formGroupName="info">
+    <div class="form-group">
+      <label>Apellidos</label>
+      <input type="text" formControlName="surname" />
+    </div>
+    <div class="form-group">
+      <label>Alias</label>
+      <input type="text" formControlName="alias" />
+    </div>
+    <div class="form-group">
+      <label>Edad</label>
+      <input type="number" formControlName="age" />
+      <div class="feedback" *ngIf="form.controls['info'].controls['age'].errors">
+        Se debe indicar una edad correcta:
+        <span *ngIf="form.controls['info'].controls['age'].errors['required']">
+          indica una edad.
+        </span>
+        <span *ngIf="form.controls['info'].controls['age'].errors['min']">
+          debe ser mayor que {{ form.controls['info'].controls['age'].errors['min'].min }}.
+        </span>
+        <span *ngIf="form.controls['info'].controls['age'].errors['max']">
+          debe ser menor que {{ form.controls['info'].controls['age'].errors['max'].max }}.
+        </span>
+      </div>
+    </div>
+  </ng-container>
+
+  <div>
+    <button type="button" (click)="cancel()">Cancelar</button>
+    &nbsp;
+    <button (click)="save()">Guardar</button>
+  </div>
+</form>
