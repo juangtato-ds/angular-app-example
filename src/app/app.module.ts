@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './ui/layout/layout.module';
@@ -33,7 +34,8 @@ function invalidWordsMessageFilterFactory(wordService: WordService): InvalidWord
     AdminChatModule.forRoot({
       enabled: true
     }),
-    LayoutModule
+    LayoutModule,
+
   ],
   providers: [
     {

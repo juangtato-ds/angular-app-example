@@ -1,0 +1,27 @@
+<app-page-section>
+    <app-page-section-title>Usuarios</app-page-section-title>
+
+    <!-- Esto esta por un error que da al intentar mostrar los datos antes de ser cargados -->
+    <!-- <ng-container *ngIf="persona; else loading">
+        <ul>
+            <li>
+                {{ persona.name }} - {{ persona.gender }} - {{ persona.height }}cm -
+                {{ persona.mass }}Kg - <a [href]="persona.homeworld" target="_blank">Plantea natal</a>" -
+                <ng-template *ngIf="persona.species.length > 0; else desconocida">
+                    <ng-template *ngFor="let specie of persona.species">
+                        {{ specie }}
+                    </ng-template>
+                </ng-template>
+                <ng-template #desconocida>
+                    Especie desconocida
+                </ng-template>
+            </li>
+        </ul>
+    </ng-container>
+    <ng-template #loading>
+        <div style="text-align: center;">
+            Trabajando...
+        </div>
+    </ng-template> -->
+
+</app-page-section>
