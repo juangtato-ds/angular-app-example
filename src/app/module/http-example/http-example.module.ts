@@ -9,6 +9,10 @@ import { GenteComponent } from './gente/gente.component';
 import { SwapiService } from './services/swapi.service';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariosService } from './services/usuarios.service';
+import { UsuariosFormComponent } from './usuarios/usuarios-form/usuarios-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UsuariosDeleteComponent } from './usuarios/usuarios-delete/usuarios-delete.component';
+import { ModificarUsuarioComponent } from './usuarios/modificar-usuario/modificar-usuario.component';
 
 
 
@@ -17,11 +21,16 @@ import { UsuariosService } from './services/usuarios.service';
 
     HttpExampleComponent,
     GenteComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    UsuariosFormComponent,
+    UsuariosDeleteComponent,
+    ModificarUsuarioComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
+
+    ReactiveFormsModule,
     
     HttpExampleRoutingModule,
 

@@ -2,19 +2,10 @@
     <app-page-section-title>Usuarios</app-page-section-title>
 
     <!-- Esto esta por un error que da al intentar mostrar los datos antes de ser cargados -->
-    <!-- <ng-container *ngIf="persona; else loading">
-        <ul>
+    <ng-container *ngIf="usuarios; else loading">
+        <ul *ngFor="let usuario of usuarios">
             <li>
-                {{ persona.name }} - {{ persona.gender }} - {{ persona.height }}cm -
-                {{ persona.mass }}Kg - <a [href]="persona.homeworld" target="_blank">Plantea natal</a>" -
-                <ng-template *ngIf="persona.species.length > 0; else desconocida">
-                    <ng-template *ngFor="let specie of persona.species">
-                        {{ specie }}
-                    </ng-template>
-                </ng-template>
-                <ng-template #desconocida>
-                    Especie desconocida
-                </ng-template>
+                {{ usuario.id }} - {{ usuario.nombre }} - {{ usuario.apellidos }} - {{ usuario.email }}
             </li>
         </ul>
     </ng-container>
@@ -22,6 +13,13 @@
         <div style="text-align: center;">
             Trabajando...
         </div>
-    </ng-template> -->
+    </ng-template>
 
+    <div class="usuarios">
+        <app-usuarios-form (crearUsuario)="crearUsuario($event)"></app-usuarios-form>
+
+        <app-usuarios-delete [ids]="ids" (borrarUsuario)="borrarUsuario($event)"></app-usuarios-delete>
+
+        <app-modificar-usuario [usuarios]="usuarios" (modificarUsuario)="modificarUsuario($event)"></app-modificar-usuario>
+    </div>
 </app-page-section>
