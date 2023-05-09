@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { HttpExampleComponent } from './http-example.component';
 import { HttpExampleRoutingModule } from './http-example-routing.module';
@@ -13,6 +13,8 @@ import { UsuariosFormComponent } from './usuarios/usuarios-form/usuarios-form.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuariosDeleteComponent } from './usuarios/usuarios-delete/usuarios-delete.component';
 import { ModificarUsuarioComponent } from './usuarios/modificar-usuario/modificar-usuario.component';
+import { LoggingInterceptor } from './interceptors/logging.interceptor';
+import { InputInterceptor } from './interceptors/input.interceptor';
 
 
 
@@ -39,8 +41,19 @@ import { ModificarUsuarioComponent } from './usuarios/modificar-usuario/modifica
   ],
   providers: [
     HttpClient,
+
     SwapiService,
-    UsuariosService
+    UsuariosService,
+    // { 
+    //   provide: HTTP_INTERCEPTORS, 
+    //   useClass: LoggingInterceptor,
+    //   multi: true
+    // },
+    // { 
+    //   provide: HTTP_INTERCEPTORS, 
+    //   useClass: InputInterceptor,
+    //   multi: true
+    // },
   ]
 })
 export class HttpExampleModule { }
