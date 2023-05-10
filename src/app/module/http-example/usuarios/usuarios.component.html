@@ -3,8 +3,8 @@
 
     <!-- Esto esta por un error que da al intentar mostrar los datos antes de ser cargados -->
     <ng-container *ngIf="usuarios; else loading">
-        <ul *ngFor="let usuario of usuarios">
-            <li>
+        <ul>
+            <li *ngFor="let usuario of usuarios">
                 {{ usuario.id }} - {{ usuario.nombre }} - {{ usuario.apellidos }} - {{ usuario.email }}
             </li>
         </ul>

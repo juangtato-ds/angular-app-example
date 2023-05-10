@@ -7,11 +7,11 @@
             <li>
                 {{ persona.name }} - {{ persona.gender }} - {{ persona.height }}cm -
                 {{ persona.mass }}Kg - <a [href]="persona.homeworld" target="_blank">Plantea natal</a>" -
-                <ng-template *ngIf="persona.species.length > 0; else desconocida">
-                    <ng-template *ngFor="let specie of persona.species">
+                <ng-container *ngIf="persona.species.length > 0; else desconocida">
+                    <ng-container *ngFor="let specie of persona.species">
                         {{ specie }}
-                    </ng-template>
-                </ng-template>
+                    </ng-container>
+                </ng-container>
                 <ng-template #desconocida>
                     Especie desconocida
                 </ng-template>
