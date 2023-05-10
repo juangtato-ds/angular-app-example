@@ -8,8 +8,7 @@ import { Usuario, UsuarioNuevo } from '../models/usuario';
 })
 export class UsuariosService {
 
-  private static API_URL = 'http://localhost:4200/api';
-  private static API_URL_USER= 'http://localhost:4200/api/user/';
+  private static API_URL = 'http://localhost:4200/users/';
 
   constructor(private http: HttpClient) { }
 
@@ -18,16 +17,15 @@ export class UsuariosService {
   }
 
   crearUsuario(data: UsuarioNuevo): Observable<Usuario> {
-    return this.http.put<Usuario>(UsuariosService.API_URL_USER, data);
+    return this.http.post<Usuario>(UsuariosService.API_URL, data);
   }
 
   borrarUsuario(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(UsuariosService.API_URL_USER+id);
+    return this.http.delete<boolean>(UsuariosService.API_URL+id);
   }
 
   modificarusuario(data: Usuario): Observable<Usuario> {
-    return this.http.patch<Usuario>(UsuariosService.API_URL_USER, data);
+    return this.http.patch<Usuario>(UsuariosService.API_URL+data.id, data);
   }
-
   
 }
