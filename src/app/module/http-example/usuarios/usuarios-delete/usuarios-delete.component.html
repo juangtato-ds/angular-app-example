@@ -1,0 +1,16 @@
+<div class="usuarios-forms">
+    <h3>Eliminar usuario</h3>
+    &nbsp;
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label>Id usuario</label>
+            <select formControlName="ids">
+                <option *ngFor="let r of ids" [value]="r">{{ r }}</option>
+            </select>
+        </div>
+        &nbsp;
+        <div>
+            <button (click)="delete()">Borrar</button>
+        </div>
+    </form>
+</div>

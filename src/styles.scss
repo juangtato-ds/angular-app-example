@@ -3,6 +3,7 @@
 // https://meyerweb.com/eric/tools/css/reset/
 @import 'scss/reset';
 
+
 .layout {
   min-height: 100vh;
   width: 100vw;
@@ -29,6 +30,15 @@
   }
 }
 
+.usuarios {
+  display: flex;
+
+  .usuarios-forms {
+    margin: 10px;
+  }
+}
+
+
 h1 {
   font-size: 200%;
   font-weight: bolder;
@@ -52,6 +62,7 @@ h2 {
 form .form-group {
   display: block;
   margin-bottom: 12px;
+
   label {
     display: block;
   }
@@ -61,7 +72,8 @@ form .form-group {
     color: red;
   }
 
-  input, select {
+  input,
+  select {
     min-width: 100px;
     padding: 5px;
 
@@ -69,14 +81,13 @@ form .form-group {
       border-color: orange;
     }
 
-    &.ng-invalid + .feedback {
+    &.ng-invalid+.feedback {
       display: block;
     }
 
-    &:invalid + .feedback {
+    &:invalid+.feedback {
       color: purple;
     }
   }
-
 
 }

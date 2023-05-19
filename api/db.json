@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nombre": "Jory",
+      "apellidos": "Kindred",
+      "email": "jkindred0@techcrunch.com"
+    },
+    {
+      "id": 2,
+      "nombre": "Tymon",
+      "apellidos": "Sendall",
+      "email": "tsendall1@china.com.cn"
+    },
+    {
+      "id": 3,
+      "nombre": "Phedra",
+      "apellidos": "Viner",
+      "email": "pviner2@soup.io"
+    },
+    {
+      "id": 4,
+      "nombre": "Woodrow",
+      "apellidos": "Gunny",
+      "email": "wgunny3@posterous.com"
+    },
+    {
+      "id": 5,
+      "nombre": "Grace",
+      "apellidos": "Bend",
+      "email": "gbend4@elpais.com"
+    },
+    {
+      "id": 6,
+      "nombre": "Ad",
+      "apellidos": "De Cristoforo",
+      "email": "adecristoforo5@acquirethisname.com"
+    },
+    {
+      "id": 7,
+      "nombre": "Burg",
+      "apellidos": "Cranefield",
+      "email": "bcranefield6@tuttocitta.it"
+    },
+    {
+      "id": 8,
+      "nombre": "Vickie",
+      "apellidos": "Hindshaw",
+      "email": "vhindshaw7@google.fr"
+    },
+    {
+      "id": 9,
+      "nombre": "Tamra",
+      "apellidos": "Fulun",
+      "email": "tfulun8@mac.com"
+    },
+    {
+      "id": 10,
+      "nombre": "Briano",
+      "apellidos": "Doggett",
+      "email": "bdoggett9@google.nl"
+    },
+    {
+      "nombre": "James",
+      "apellidos": "Bond",
+      "email": "007@mi6.co.uk",
+      "id": 11
+    }
+  ]
+}
