@@ -1,0 +1,110 @@
+<app-page-title>Modal Tests</app-page-title>
+
+<app-page-section>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Descripción</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Mostrar un <b>modal</b> de <b>texto</b>
+        </td>
+        <td>
+          <button (click)="textModal()">
+            SHOW
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Solicitar <b>confirmación</b> de sólo <b>texto</b>
+        </td>
+        <td>
+          <button (click)="textConfirm()">
+            SHOW
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Mostrar un <b>modal</b> con un <b>componente</b> del módulo
+        </td>
+        <td>
+          <button (click)="modalRichText()">
+            SHOW
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Solicitar <b>confirmación</b> para un <b>componente</b> del módulo
+        </td>
+        <td>
+          <button (click)="confirmRichText()">
+            SHOW
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Solicitar <b>confirmación</b> para un <b>formulario</b>
+        </td>
+        <td>
+          <button (click)="confirmForm()">
+            SHOW
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Modal de <b>ERROR</b>
+        </td>
+        <td>
+          <button (click)="modalWithTypeAndTitle('modal-error','Algo pachó')">
+            SHOW
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Modal de <b>WARNING</b>
+        </td>
+        <td>
+          <button (click)="modalWithTypeAndTitle('modal-warning')">
+            SHOW
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Modal de <b>SUCCESS</b>
+        </td>
+        <td>
+          <button (click)="modalWithTypeAndTitle('modal-success', 'Otro éxito')">
+            SHOW
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</app-page-section>
+
+<app-page-section>
+  <app-page-section-title>LOG</app-page-section-title>
+  <ul>
+    <li *ngFor="let log of logs">
+      {{ log }}
+    </li>
+  </ul>
+</app-page-section>

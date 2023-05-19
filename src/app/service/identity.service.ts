@@ -1,60 +1,75 @@
 import { Injectable } from '@angular/core';
 import { UserIdentity, UserRole } from '../core/user-identity.model';
-import { Observable, delay, of } from 'rxjs';
-import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { Observable, tap } from 'rxjs';
+import {
+  AbstractControl,
+  FormControl,
+  NonNullableFormBuilder,
+  ValidationErrors,
+  Validators
+} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
+
+function roleValidator(control: AbstractControl): ValidationErrors | null {
+  return control.value == UserRole.ANONYMOUS ? { role: true } : null;
+
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class IdentityService {
 
-  identity?: UserIdentity;
+  private static API_URL = '/api/users/';
+
+  userMap: Map<number, UserIdentity>;
 
   constructor(
+    private http: HttpClient,
     private nfb: NonNullableFormBuilder
-  ) { }
+  ) {
+    this.userMap = new Map<number, UserIdentity>();
+  }
 
-  get(): Observable<UserIdentity> {
-    return of(this.getActualIdentity()).pipe(delay(1500));
+  list(): Observable<Array<UserIdentity>> {
+    return this.http.get<UserIdentity[]>(IdentityService.API_URL).pipe(
+      tap(v => this.populateCache(v))
+    );
+  }
+
+  get(id: number): Observable<UserIdentity> {
+    return this.http.get<UserIdentity>(this.urlById(id));
+  }
+
+  create(identity: UserIdentity): Observable<UserIdentity> {
+    return this.http.post<UserIdentity>(IdentityService.API_URL, identity).pipe(
+      tap(v => this.userMap.set(v.id, v))
+    );
   }
 
   update(identity: UserIdentity): Observable<UserIdentity> {
-    if (identity.role === UserRole.ADMIN) {
-      identity.id = 'none';
-    } else if (identity.role === UserRole.ANONYMOUS) {
-      identity.id = this.generateId();
-    }
-    this.identity = identity;
-    return of(this.identity).pipe(delay(1500));
+    return this.http.patch<UserIdentity>(this.urlById(identity.id), identity).pipe(
+      tap(v => this.userMap.set(v.id, v))
+    );
+  }
+
+  delete(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(this.urlById(id)).pipe(
+      tap(() => this.userMap.delete(id))
+    );
   }
 
   form() { // dejamos que el transpilador infiera la estructura
-    const data = this.getActualIdentity();
     return this.nfb.group({
-      id: data.id,
-      name: [data.name, [Validators.required]],
-      role: [data.role, [Validators.required]],
-      // attributes: this.attributeFormArray(data.attributes),
+      id: -1,
+      name: ['', [Validators.required]],
+      role: [UserRole.ANONYMOUS, [Validators.required, roleValidator]],
+      attributes: this.attributeFormArray([]),
       info: this.nfb.group({
-        surname: data.info.surname,
-        alias: data.info.alias,
-        age: [data.info.age, [Validators.required, Validators.min(1), Validators.max(130)]]
-      })
-    });
-  }
-
-  formWithAttributes() { // dejamos que el transpilador infiera la estructura
-    const data = this.getActualIdentity();
-    return this.nfb.group({
-      id: data.id,
-      name: [data.name, [Validators.required]],
-      role: [data.role, [Validators.required]],
-      attributes: this.attributeFormArray(data.attributes),
-      info: this.nfb.group({
-        surname: data.info.surname,
-        alias: data.info.alias,
-        age: [data.info.age, [Validators.required, Validators.min(1), Validators.max(130)]]
+        surname: '',
+        alias: '',
+        age: [-1, [Validators.required, Validators.min(1), Validators.max(130)]]
       })
     });
   }
@@ -68,22 +83,14 @@ export class IdentityService {
     return this.nfb.array(controls);
   }
 
-  private generateId(): string {
-    return `ID-${Math.floor(Math.random() * 1000)}`;
+  private urlById(id: number): string {
+    return IdentityService.API_URL + id;
   }
 
-  private getActualIdentity(): UserIdentity {
-    if (!this.identity) {
-      this.identity = {
-        id: this.generateId(),
-        name: 'Anonymous',
-        role: UserRole.ANONYMOUS,
-        attributes: ['first', 'time', 'attributes'],
-        info: {
-          age: -1
-        }
-      }
+  private populateCache(userList: Array<UserIdentity>): void {
+    this.userMap.clear();
+    for (const user of userList) {
+      this.userMap.set(user.id, user);
     }
-    return this.identity;
   }
 }

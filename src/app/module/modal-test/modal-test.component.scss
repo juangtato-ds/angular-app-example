@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+
+  tr {
+    border-bottom: 1px solid gray;
+
+    td,
+    th {
+      padding: 10px 5px;
+    }
+
+    td:last-child,
+    th:last-child {
+      text-align: center;
+    }
+  }
+
+  tbody tr:hover {
+    background-color: rgb(144, 238, 144, 0.25);
+  }
+
+}

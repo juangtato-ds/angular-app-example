@@ -1,17 +1,17 @@
-import { UserRole } from "src/app/core/user-identity.model";
+import { UserRole } from "../../../core/user-identity.model";
 
 export interface AnonymousAuthor {
-  id: string;
   role: UserRole.ANONYMOUS
 }
 
 export interface Author {
-  id: string;
+  id: number;
   role: UserRole.USER;
   name: string;
 }
 
 export interface AdminAuthor {
+  id: number;
   role: UserRole.ADMIN
 }
 

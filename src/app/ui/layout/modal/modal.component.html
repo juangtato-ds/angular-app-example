@@ -1,0 +1,28 @@
+<div class="modal-shadow" (click)="clickDispose()" [class.hidden]="!visible">
+  <div class="modal" appModalDialog [class]="modalClass">
+    <div class="modal-header">
+      <span class="modal-title">
+        {{ title | uppercase }}
+      </span>
+      <button (click)="clickDispose()" *ngIf="!confirmable">
+        X
+      </button>
+    </div>
+
+    <div class="modal-content">
+      <ng-template appModal></ng-template>
+    </div>
+
+    <div class="modal-footer">
+      <button (click)="clickDispose(true)">
+        {{ disposeLabel }}
+      </button>
+
+      <button (click)="clickConfirm()" *ngIf="confirmable">
+        Aceptar
+      </button>
+
+    </div>
+
+  </div>
+</div>

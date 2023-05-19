@@ -1,13 +1,34 @@
 <div class="side-nav-content">
-  <a routerLink="/chat">
-    CHAT
+  <div class="side-nav-title">
+    <ng-container *ngIf="session.role === 'anonymous'; else sayHello">
+      Anonymous Mode
+    </ng-container>
+    <ng-template #sayHello>
+      Hello {{ session.name }}
+    </ng-template>
+  </div>
+
+  <a routerLink="/">
+    Home
   </a>
 
-  <a routerLink="/http-example">
-    HTTP Example
+  <a routerLink="/chat">
+    Chat
   </a>
 
-  <a routerLink="/chat">
-    CHAT
+  <a routerLink="/sql">
+    SQL Utils
   </a>
+
+  <a routerLink="/modal-test">
+    Modal Tests
+  </a>
+
+  <ng-container *ngIf="session.role === 'admin'">
+    <div class="side-nav-title">Admin</div>
+    <a routerLink="/admin">
+      Admin Section
+    </a>
+  </ng-container>
+
 </div>

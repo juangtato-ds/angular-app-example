@@ -1,1 +1,10 @@
-<p>chat-channel works!</p>
+<app-page-section>
+  <app-page-section-title>
+    Mensajes
+  </app-page-section-title>
+  <div class="chat">
+    <div class="chat-message" *ngFor="let message of messages">
+      {{ message.author | messageAuthor }} >> {{ message.message }}
+    </div>
+  </div>
+</app-page-section>

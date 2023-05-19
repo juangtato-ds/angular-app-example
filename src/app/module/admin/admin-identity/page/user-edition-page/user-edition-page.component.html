@@ -1,0 +1,11 @@
+<ng-container *ngIf="identity">
+  <app-page-title>
+    User: {{ identity.name }}
+  </app-page-title>
+  <app-page-section>
+    Esta página sólo permite la edición de la información de usuario.
+  </app-page-section>
+  <app-page-section>
+    <app-identity-form [data]="identity" (updateIdentity)="editionDone($event)"></app-identity-form>
+  </app-page-section>
+</ng-container>

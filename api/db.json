@@ -1,70 +1,187 @@
 {
+  "messages": [
+    {
+      "author": {
+        "id": -1,
+        "role": "admin"
+      },
+      "ts": "2023-05-22T09:00:49.738Z",
+      "message": "Buen día",
+      "id": 1
+    },
+    {
+      "author": {
+        "id": -1,
+        "role": "admin"
+      },
+      "ts": "2023-05-22T09:23:35.881Z",
+      "message": "Este mensaje es de ejemplo",
+      "id": 2
+    },
+    {
+      "author": {
+        "id": 3,
+        "name": "Phedra",
+        "role": "user"
+      },
+      "ts": "2023-05-22T09:23:42.150Z",
+      "message": "Mi primer mensaje",
+      "id": 3
+    },
+    {
+      "author": {
+        "id": 4,
+        "name": "Woodrow",
+        "role": "user"
+      },
+      "ts": "2023-05-22T11:02:59.154Z",
+      "message": "Wooh!!",
+      "id": 4
+    }
+  ],
   "users": [
     {
       "id": 1,
-      "nombre": "Jory",
-      "apellidos": "Kindred",
-      "email": "jkindred0@techcrunch.com"
+      "name": "Jory",
+      "role": "admin",
+      "attributes": [
+        "email=jkindred0@techcrunch.com"
+      ],
+      "info": {
+        "surname": "Kindred",
+        "alias": "Jory",
+        "age": 72
+      }
     },
     {
       "id": 2,
-      "nombre": "Tymon",
-      "apellidos": "Sendall",
-      "email": "tsendall1@china.com.cn"
+      "name": "Tymon",
+      "role": "user",
+      "attributes": [
+        "email=tsendall1@china.com.cn"
+      ],
+      "info": {
+        "surname": "Sendall",
+        "alias": "Tymon",
+        "age": 86
+      }
     },
     {
       "id": 3,
-      "nombre": "Phedra",
-      "apellidos": "Viner",
-      "email": "pviner2@soup.io"
+      "name": "Phedra",
+      "role": "user",
+      "attributes": [
+        "email=pviner2@soup.io"
+      ],
+      "info": {
+        "surname": "Viner",
+        "alias": "Phedra",
+        "age": 32
+      }
     },
     {
       "id": 4,
-      "nombre": "Woodrow",
-      "apellidos": "Gunny",
-      "email": "wgunny3@posterous.com"
+      "name": "Woodrow",
+      "role": "user",
+      "attributes": [
+        "email=wgunny3@posterous.com"
+      ],
+      "info": {
+        "surname": "Gunny",
+        "alias": "Woodrow",
+        "age": 74
+      }
     },
     {
       "id": 5,
-      "nombre": "Grace",
-      "apellidos": "Bend",
-      "email": "gbend4@elpais.com"
+      "name": "Grace",
+      "role": "user",
+      "attributes": [
+        "email=gbend4@elpais.com"
+      ],
+      "info": {
+        "surname": "Bend",
+        "alias": "Grace",
+        "age": 22
+      }
     },
     {
       "id": 6,
-      "nombre": "Ad",
-      "apellidos": "De Cristoforo",
-      "email": "adecristoforo5@acquirethisname.com"
+      "name": "Ad",
+      "role": "user",
+      "attributes": [
+        "email=adecristoforo5@acquirethisname.com"
+      ],
+      "info": {
+        "surname": "De Cristoforo",
+        "alias": "Ad",
+        "age": 61
+      }
     },
     {
       "id": 7,
-      "nombre": "Burg",
-      "apellidos": "Cranefield",
-      "email": "bcranefield6@tuttocitta.it"
+      "name": "Burg",
+      "role": "user",
+      "attributes": [
+        "email=bcranefield6@tuttocitta.it"
+      ],
+      "info": {
+        "surname": "Cranefield",
+        "alias": "Burg",
+        "age": 41
+      }
     },
     {
       "id": 8,
-      "nombre": "Vickie",
-      "apellidos": "Hindshaw",
-      "email": "vhindshaw7@google.fr"
+      "name": "Vickie",
+      "role": "user",
+      "attributes": [
+        "email=vhindshaw7@google.fr"
+      ],
+      "info": {
+        "surname": "Hindshaw",
+        "alias": "Vickie",
+        "age": 53
+      }
     },
     {
       "id": 9,
-      "nombre": "Tamra",
-      "apellidos": "Fulun",
-      "email": "tfulun8@mac.com"
+      "name": "Tamra",
+      "role": "user",
+      "attributes": [
+        "email=tfulun8@mac.com"
+      ],
+      "info": {
+        "surname": "Fulun",
+        "alias": "Tamra",
+        "age": 3
+      }
     },
     {
       "id": 10,
-      "nombre": "Briano",
-      "apellidos": "Doggett",
-      "email": "bdoggett9@google.nl"
+      "name": "Briano",
+      "role": "user",
+      "attributes": [
+        "email=bdoggett9@google.nl"
+      ],
+      "info": {
+        "surname": "Doggett",
+        "alias": "Briano",
+        "age": 2
+      }
     },
     {
-      "nombre": "James",
-      "apellidos": "Bond",
-      "email": "007@mi6.co.uk",
-      "id": 11
+      "id": 11,
+      "name": "James",
+      "role": "user",
+      "attributes": [
+        "email=007@mi6.co.uk"
+      ],
+      "info": {
+        "surname": "Bond",
+        "alias": "James",
+        "age": 34
+      }
     }
   ]
 }

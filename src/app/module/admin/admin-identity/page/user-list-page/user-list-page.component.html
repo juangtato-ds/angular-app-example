@@ -1,0 +1,43 @@
+<app-page-title>Listado de Usuarios</app-page-title>
+
+<app-page-section>
+  <table *ngIf="identityList?.length; empty">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Role</th>
+        <th scope="col">Alias</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let identity of identityList">
+        <th scope="row">{{ identity.id }}</th>
+        <td>{{ identity.name }}</td>
+        <td>{{ identity.info.surname }}</td>
+        <td>{{ identity.role | titlecase }}</td>
+        <td>{{ identity.info.alias}}</td>
+        <td>{{ identity.info.age }}</td>
+        <td>
+          <a [routerLink]="['..', identity.id]">
+            Editar
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #empty>
+    <div style="text-align: center;">
+      No existen usuarios en el sistema
+    </div>
+  </ng-template>
+</app-page-section>
+
+<app-page-section>
+  <div class="text-align: right">
+    <a [routerLink]="['..', 'create']">Nuevo</a>
+  </div>
+</app-page-section>

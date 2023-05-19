@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserIdentity } from 'src/app/core/user-identity.model';
-import { IdentityService } from 'src/app/service/identity.service';
+import { UserIdentity } from '../../core/user-identity.model';
+import { IdentityService } from '../../service/identity.service';
+import { SessionService } from '../../service/session.service';
+import { ModalService } from '../../ui/layout/service/modal.service';
+import { ModalType } from '../../ui/layout/service/modal.api';
 
 @Component({
   selector: 'app-identity',
@@ -10,26 +13,36 @@ import { IdentityService } from 'src/app/service/identity.service';
 })
 export class IdentityComponent implements OnInit {
 
-  identity?: UserIdentity;
+  selectedId!: number;
+  identity!: UserIdentity;
+  userList: Array<UserIdentity> = [];
 
   constructor(
+    private sessionService: SessionService,
     private identityService: IdentityService,
-    private router: Router
+    private router: Router,
+    private modalService: ModalService
   ) { }
 
   ngOnInit(): void {
-    this.identityService.get().subscribe(
-      i => this.identity = i
-    );
+    this.identity = this.sessionService.getIdentity();
+    this.selectedId = this.identity.id;
+    this.identityService.list().subscribe({
+      next: v => this.userList = v,
+      error: e => {
+        console.log('Comm error', e);
+        this.modalService.modal('Unable to fetch user list', { type: ModalType.ERROR });
+      }
+    });
   }
 
-  updateIdentity(userIdentity: UserIdentity | undefined): void {
-    if (userIdentity) {
-      this.identity = undefined;
-      this.identityService.update(userIdentity).subscribe(v => this.router.navigateByUrl('/'));
-    } else {
-      this.router.navigateByUrl('/');
-    }
+  updateIdentity(): void {
+    this.sessionService.setIdentity(this.userList.find(v => v.id == this.selectedId));
+    this.modalService.modal(
+      'Identidad de sesión actualizada', { type: ModalType.ERROR }
+    ).promise.then(
+      () => this.router.navigateByUrl('/')
+    );
   }
 
 }

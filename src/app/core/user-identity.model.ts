@@ -17,7 +17,7 @@ export const userRoleList = [
 ];
 
 export interface UserIdentity {
-  id: string;
+  id: number;
   name: string;
   role: UserRole;
   attributes: Array<string>;

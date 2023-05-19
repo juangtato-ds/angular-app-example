@@ -1,0 +1,23 @@
+<app-page-title>SQL Utils</app-page-title>
+
+<app-page-section>
+  <app-page-section-title>Datos de Entrada</app-page-section-title>
+  <p>Copia-pega tus datos</p>
+  <div>
+    <textarea [(ngModel)]="json"></textarea>
+  </div>
+  <div>
+    <button (click)="parseToSqlInsert()">
+      Create Insert
+    </button>
+  </div>
+</app-page-section>
+
+<app-page-section *ngIf="output?.length">
+  <app-page-section-title>Resultado</app-page-section-title>
+  <pre>
+    <ng-container *ngFor="let statement of output">
+      {{statement}}
+    </ng-container>
+  </pre>
+</app-page-section>

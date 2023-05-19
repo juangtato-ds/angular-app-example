@@ -12,10 +12,12 @@ import { CHAT_MESSAGE_FILTER } from './module/chat/service/message/message-filte
 import { InvalidWordsMessageFilter } from './extra/invalid-words.message-filter';
 
 import { NonEmptyMessageFilter } from './module/chat/service/message/non-empty.message-filter';
+import { HttpClientModule } from '@angular/common/http';
 
 // ...
 import { environment } from 'src/environments/environment';
 import { WordService } from './service/word.service';
+import { SecurityModule } from './shared/security/security.module';
 function invalidWordsMessageFilterFactory(wordService: WordService): InvalidWordsMessageFilter {
   return new InvalidWordsMessageFilter(
     [... environment.message.invalidWords, ... wordService.getAdditionalBlackList()]
@@ -31,11 +33,15 @@ function invalidWordsMessageFilterFactory(wordService: WordService): InvalidWord
     BrowserModule,
     AppRoutingModule,
 
+    HttpClientModule,
+
+    SecurityModule.forRoot([
+      '/api/messages'
+    ]),
     AdminChatModule.forRoot({
       enabled: true
     }),
-    LayoutModule,
-
+    LayoutModule.forRoot(),
   ],
   providers: [
     {
