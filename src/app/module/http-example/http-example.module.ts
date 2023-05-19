@@ -33,7 +33,7 @@ import { InputInterceptor } from './interceptors/input.interceptor';
     HttpClientModule,
 
     ReactiveFormsModule,
-    
+
     HttpExampleRoutingModule,
 
     PageSharedModule,
@@ -44,13 +44,13 @@ import { InputInterceptor } from './interceptors/input.interceptor';
 
     SwapiService,
     UsuariosService,
-    // { 
-    //   provide: HTTP_INTERCEPTORS, 
+    // {
+    //   provide: HTTP_INTERCEPTORS,
     //   useClass: LoggingInterceptor,
     //   multi: true
     // },
-    // { 
-    //   provide: HTTP_INTERCEPTORS, 
+    // {
+    //   provide: HTTP_INTERCEPTORS,
     //   useClass: InputInterceptor,
     //   multi: true
     // },

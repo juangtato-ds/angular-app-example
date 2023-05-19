@@ -9,7 +9,7 @@ import { SwapiService } from '../services/swapi.service';
 })
 export class GenteComponent implements OnInit {
 
-  persona!: Gente;
+  persona?: Gente;
 
   constructor(private swapi: SwapiService){ }
 
