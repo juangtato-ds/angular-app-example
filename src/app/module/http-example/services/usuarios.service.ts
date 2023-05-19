@@ -8,7 +8,7 @@ import { Usuario, UsuarioNuevo } from '../models/usuario';
 })
 export class UsuariosService {
 
-  private static API_URL = 'http://localhost:4200/users/';
+  private static API_URL = '/api/users/';
 
   constructor(private http: HttpClient) { }
 
@@ -27,5 +27,5 @@ export class UsuariosService {
   modificarusuario(data: Usuario): Observable<Usuario> {
     return this.http.patch<Usuario>(UsuariosService.API_URL+data.id, data);
   }
-  
+
 }
