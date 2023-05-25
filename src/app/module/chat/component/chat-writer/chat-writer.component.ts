@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ChatService } from '../../../../service/chat.service';
-import { SessionService } from '../../../../service/session.service';
-import { UserIdentity } from '../../../../core/user-identity.model';
-import { ModalService } from '../../../../ui/layout/service/modal.service';
-import { ModalType } from '../../../../ui/layout/service/modal.api';
+import { SessionService, UserIdentity } from 'jgt-core';
+import { ModalService, ModalType } from 'jgt-layout';
 
 @Component({
   selector: 'app-chat-writer',

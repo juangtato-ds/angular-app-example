@@ -1,9 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { UserIdentity, userRoleList } from '../../../../../core/user-identity.model';
 import { IdentityService } from '../../../../../service/identity.service';
 import { FormArray, FormControl } from '@angular/forms';
-import { ModalService } from '../../../../../ui/layout/service/modal.service';
-import { ModalType } from '../../../../../ui/layout/service/modal.api';
+import { UserIdentity, userRoleList } from 'jgt-core';
+import { ModalService, ModalType } from 'jgt-layout';
 
 @Component({
   selector: 'app-identity-form',

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { IdentityRoutingModule } from './identity-routing.module';
 import { IdentityComponent } from './identity.component';
-import { PageSharedModule } from '../../ui/page-shared/page-shared.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { PageSharedModule } from 'jgt-layout';
 
 
 @NgModule({

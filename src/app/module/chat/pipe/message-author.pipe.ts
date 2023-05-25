@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { MessageAuthor } from '../core/message.api';
-import { UserRole } from '../../../core/user-identity.model';
+import { UserRole } from 'jgt-core';
 
 @Pipe({
   name: 'messageAuthor'

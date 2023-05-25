@@ -6,9 +6,8 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SessionService } from '../../../service/session.service';
 import { SECURITY_URL_PREFIX_INTERCEPTOR } from './session-interceptor.token';
-import { UserRole } from '../../../core/user-identity.model';
+import { SessionService, UserRole } from 'jgt-core';
 
 @Injectable()
 export class SessionInterceptor implements HttpInterceptor {

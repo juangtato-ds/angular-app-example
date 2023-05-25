@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserIdentity } from '../../../../../core/user-identity.model';
 import { IdentityService } from '../../../../../service/identity.service';
-import { ModalService } from '../../../../../ui/layout/service/modal.service';
+import { UserIdentity } from 'jgt-core';
+import { ModalService } from 'jgt-layout';
 
 @Component({
   selector: 'app-user-list-page',

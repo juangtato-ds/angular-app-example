@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule
+  ],
+  exports: [
+    ParentComponent
   ]
 })
 export class StructModule { }

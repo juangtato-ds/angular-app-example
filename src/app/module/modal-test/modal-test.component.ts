@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { ModalService } from '../../ui/layout/service/modal.service';
 import { RichTextModalComponent } from './rich-text-modal/rich-text-modal.component';
 import { FormModalComponent } from './form-modal/form-modal.component';
-import { ModalType } from '../../ui/layout/service/modal.api';
+import { ModalService, ModalType } from 'jgt-layout';
 
 @Component({
   selector: 'app-modal-test',

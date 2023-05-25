@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
+import { SessionService, UserIdentity } from 'jgt-core';
 import { Subscription } from 'rxjs';
-import { UserIdentity } from '../../../core/user-identity.model';
-import { SessionService } from '../../../service/session.service';
 
 @Component({
   selector: 'app-side-nav-menu',

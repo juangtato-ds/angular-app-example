@@ -1,4 +1,4 @@
-import { UserRole } from "../../../core/user-identity.model";
+import { UserRole } from "jgt-core";
 
 export interface AnonymousAuthor {
   role: UserRole.ANONYMOUS

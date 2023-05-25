@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserIdentity } from '../../../../../core/user-identity.model';
 import { IdentityService } from '../../../../../service/identity.service';
-import { ModalService } from '../../../../../ui/layout/service/modal.service';
-import { ModalType } from '../../../../../ui/layout/service/modal.api';
+import { UserIdentity } from 'jgt-core';
+import { ModalService, ModalType } from 'jgt-layout';
 
 @Component({
   selector: 'app-user-creation-page',

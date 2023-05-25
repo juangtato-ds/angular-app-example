@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserIdentity } from '../../core/user-identity.model';
 import { IdentityService } from '../../service/identity.service';
-import { SessionService } from '../../service/session.service';
-import { ModalService } from '../../ui/layout/service/modal.service';
-import { ModalType } from '../../ui/layout/service/modal.api';
+import { SessionService, UserIdentity } from 'jgt-core';
+import { ModalService, ModalType } from 'jgt-layout';
 
 @Component({
   selector: 'app-identity',

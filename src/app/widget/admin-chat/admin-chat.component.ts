@@ -1,8 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { AbstractAdminChatService } from './abstract-admin-chat-service';
 import { ADMIN_CHAT_CONFIG, AdminChatConfig } from './admin-chat-config';
-import { ModalService } from '../../ui/layout/service/modal.service';
-import { ModalType } from '../../ui/layout/service/modal.api';
+import { ModalService, ModalType } from 'jgt-layout';
 
 @Component({
   selector: 'app-admin-chat',

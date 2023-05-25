@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageSharedModule } from '../../ui/page-shared/page-shared.module';
+import { PageSharedModule } from 'jgt-layout';
 
 @Component({
   selector: 'app-landing',

@@ -9,6 +9,9 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "paths": {
+      "jgt-core": [
+        "dist/jgt-core"
+      ],
       "jgt-layout": [
         "dist/jgt-layout"
       ]

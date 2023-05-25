@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageSharedModule } from '../../ui/page-shared/page-shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SqlUtilsService } from './service/sql-utils.service';
-import { ModalService } from '../../ui/layout/service/modal.service';
-import { ModalType } from '../../ui/layout/service/modal.api';
+import { ModalService, ModalType, PageSharedModule } from 'jgt-layout';
 
 @Component({
   selector: 'app-sql-utils',

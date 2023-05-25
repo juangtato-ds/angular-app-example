@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { UserIdentity, UserRole } from '../core/user-identity.model';
 import { Observable, tap } from 'rxjs';
 import {
   AbstractControl,
@@ -9,6 +8,7 @@ import {
   Validators
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { UserRole, UserIdentity } from 'jgt-core';
 
 
 function roleValidator(control: AbstractControl): ValidationErrors | null {

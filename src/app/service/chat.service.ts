@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { AbstractAdminChatService } from '../widget/admin-chat/abstract-admin-chat-service';
 import { MessageFilterService } from '../module/chat/service/message-filter.service';
 import { Message, MessageAuthor } from '../module/chat/core/message.api';
-import { UserIdentity, UserRole } from '../core/user-identity.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject, map, of, tap } from 'rxjs';
-import { SessionService } from './session.service';
+import { SessionService, UserIdentity, UserRole } from 'jgt-core';
 
 @Injectable({
   providedIn: 'root'

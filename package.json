@@ -9,7 +9,9 @@
     "test": "ng test",
     "api": "json-server --watch api/db.json",
     "prebundle-report": "ng build --stats-json",
-    "bundle-report": "webpack-bundle-analyzer dist/app-example/stats.json"
+    "bundle-report": "webpack-bundle-analyzer dist/app-example/stats.json",
+    "build-core": "ng build jgt-core",
+    "build-layout": "ng build jgt-layout"
   },
   "private": true,
   "dependencies": {

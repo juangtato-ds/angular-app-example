@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ParentComponent } from '../../../ui/struct/parent/parent.component';
 import { UserListPageComponent } from './page/user-list-page/user-list-page.component';
 import { UserCreationPageComponent } from './page/user-creation-page/user-creation-page.component';
 import { UserEditionPageComponent } from './page/user-edition-page/user-edition-page.component';
+import { ParentComponent } from 'jgt-layout';
 
 const routes: Routes = [
   {

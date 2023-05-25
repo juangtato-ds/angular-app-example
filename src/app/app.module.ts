@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutModule } from './ui/layout/layout.module';
 import { AdminChatModule } from './widget/admin-chat/admin-chat.module';
 import { ChatService } from './service/chat.service';
 import { AbstractAdminChatService } from './widget/admin-chat/abstract-admin-chat-service';
@@ -18,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { WordService } from './service/word.service';
 import { SecurityModule } from './shared/security/security.module';
+import { LayoutModule } from 'jgt-layout';
+
 function invalidWordsMessageFilterFactory(wordService: WordService): InvalidWordsMessageFilter {
   return new InvalidWordsMessageFilter(
     [... environment.message.invalidWords, ... wordService.getAdditionalBlackList()]

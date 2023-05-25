@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { UserIdentity, UserRole } from '../../../core/user-identity.model';
+import { UserIdentity, UserRole } from 'jgt-core';
 
 @Pipe({
   name: 'userIdentity'

@@ -4,11 +4,9 @@ import {
   Router,
   RouterStateSnapshot
 } from '@angular/router';
-import { SessionService } from '../../../service/session.service';
-import { UserRole } from '../../../core/user-identity.model';
 import { inject } from '@angular/core';
-import { ModalService } from '../../../ui/layout/service/modal.service';
-import { ModalType } from '../../../ui/layout/service/modal.api';
+import { SessionService, UserRole } from 'jgt-core';
+import { ModalService, ModalType } from 'jgt-layout';
 
 // https://angular.io/guide/router-tutorial-toh#canactivate-requiring-authentication
 // https://angular.io/api/router/CanActivateFn
