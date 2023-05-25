@@ -15,10 +15,10 @@ export class InputInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    if (request.url.includes('localhost'))
+    if (request.url.includes('/api/users'))
       return next.handle(request).pipe(
         map(response => {
-          if (response.type != 0 && response instanceof HttpResponse<any>) {
+          if (response.type != 0 && response instanceof HttpResponse<any> && Array.isArray(response.body)) {
             console.log('Aqui va mi respuesta')
 
             const nuevaRespuesta = response.clone({

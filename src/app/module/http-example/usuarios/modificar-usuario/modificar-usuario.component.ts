@@ -1,37 +1,39 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UsuariosService } from '../../services/usuarios.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-modificar-usuario',
   templateUrl: './modificar-usuario.component.html',
   styleUrls: ['./modificar-usuario.component.scss']
 })
-export class ModificarUsuarioComponent {
+export class ModificarUsuarioComponent implements OnDestroy {
+
+  private susbcription: Subscription;
+  form = this.usuariosService.getForm();
 
   @Input()
   usuarios: Usuario[] = [];
-  // usuarios: Map<number,Usuario> = new Map();
 
 
   @Output()
   modificarUsuario = new EventEmitter<Usuario>();
 
-  form = new FormGroup({
-    id: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    nombre: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    apellidos: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    email: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-  });
+  constructor(private usuariosService: UsuariosService) {
+    this.susbcription = this.form.controls.id.valueChanges.subscribe( id => {
+      this.cargarInfoUsuario(id);
+    })
+  }
 
-  cargarInfoUsuario(): void {
-    const id = Number(this.form.getRawValue().id);
-    // let usuario = this.usuarios.get(id) ?? null;
-    const usuario = this.usuarios[id-1];
-    if(usuario){
-      this.form.controls['nombre'].setValue(usuario.nombre);
-      this.form.controls['apellidos'].setValue(usuario.apellidos);    
-      this.form.controls['email'].setValue(usuario.email);
+  cargarInfoUsuario(id: number): void {
+
+    const usuario = this.usuarios[id - 1];
+    if (usuario) {
+      this.form.setValue(usuario);
+    } else {
+      this.form.reset();
     }
   }
 
@@ -41,17 +43,14 @@ export class ModificarUsuarioComponent {
 
   save(): void {
     if (this.form.valid) {
-      const value = this.form.getRawValue();
-
-      this.modificarUsuario.emit({
-        id: Number(value.id),
-        nombre: value.nombre,
-        apellidos: value.apellidos,
-        email: value.email
-      });
+      this.modificarUsuario.emit(this.form.getRawValue());
     } else {
       alert('Datos inválidos');
     }
+  }
+
+  ngOnDestroy(): void {
+    this.susbcription.unsubscribe();
   }
 
 }

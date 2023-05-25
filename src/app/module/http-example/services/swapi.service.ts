@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Gente } from '../models/gente';
@@ -14,5 +14,5 @@ export class SwapiService {
 
   getData(id: number): Observable<Gente>{
     return this.http.get<Gente>(SwapiService.API_PEOPLE_GET+`${id}`);
-  }
+  } 
 }

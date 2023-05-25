@@ -4,7 +4,7 @@
     <form [formGroup]="form">
         <div class="form-group">
             <label>Id</label>
-            <input type="number" formControlName="id" (change)="cargarInfoUsuario()" />
+            <input type="number" formControlName="id"  />
             <div *ngIf="form.touched" class="feedback">
                 Debes indicar un id.
             </div>

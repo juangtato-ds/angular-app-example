@@ -1,23 +1,21 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { UsuarioNuevo } from '../../models/usuario';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-usuarios-form',
   templateUrl: './usuarios-form.component.html',
   styleUrls: ['./usuarios-form.component.scss']
 })
-export class UsuariosFormComponent{
+export class UsuariosFormComponent {
 
-  form = new FormGroup({
-    id: new FormControl(0, { nonNullable: true, validators: [Validators.required] }),
-    nombre: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    apellidos: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-    email: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
-  });
-
+  form = this.usuariosService.getForm();
+  
   @Output()
   crearUsuario = new EventEmitter<UsuarioNuevo>();
+  
+  constructor(private usuariosService: UsuariosService){}
 
   cancel(): void {
     this.form.reset();
@@ -25,13 +23,7 @@ export class UsuariosFormComponent{
 
   save(): void {
     if (this.form.valid) {
-      const value = this.form.getRawValue();
-
-      this.crearUsuario.emit({
-        nombre: value.nombre,
-        apellidos: value.apellidos,
-        email: value.email
-      });
+      this.crearUsuario.emit(this.form.getRawValue());
     } else {
       alert('Datos inválidos');
     }
