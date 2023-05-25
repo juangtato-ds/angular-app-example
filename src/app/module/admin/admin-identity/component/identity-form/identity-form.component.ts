@@ -2,7 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { UserIdentity, userRoleList } from '../../../../../core/user-identity.model';
 import { IdentityService } from '../../../../../service/identity.service';
 import { FormArray, FormControl } from '@angular/forms';
-import { ModalService } from 'src/app/ui/layout/service/modal.service';
+import { ModalService } from '../../../../../ui/layout/service/modal.service';
+import { ModalType } from '../../../../../ui/layout/service/modal.api';
 
 @Component({
   selector: 'app-identity-form',
@@ -57,7 +58,7 @@ export class IdentityFormComponent {
     if (this.form.valid) {
       this.updateIdentity.emit(this.form.getRawValue());
     } else {
-      alert('Datos inválidos');
+      this.modalService.modal('Datos inválidos', { type: ModalType.ERROR });
     }
   }
 
