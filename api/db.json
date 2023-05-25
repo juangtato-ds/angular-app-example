@@ -37,6 +37,16 @@
       "ts": "2023-05-22T11:02:59.154Z",
       "message": "Wooh!!",
       "id": 4
+    },
+    {
+      "author": {
+        "id": 7,
+        "name": "Burg",
+        "role": "user"
+      },
+      "ts": "2023-05-25T16:43:53.378Z",
+      "message": "MEnsaje",
+      "id": 5
     }
   ],
   "users": [

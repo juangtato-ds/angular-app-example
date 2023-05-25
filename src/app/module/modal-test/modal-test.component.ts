@@ -78,7 +78,7 @@ export class ModalTestComponent {
         type: type as ModalType, // this assertion is controlled by US, we have valid values in the template
         title
       }
-    );
+    ).promise.then(v => this.log(`Cerrado modal con título --${title}-- (${type}) `));
   }
 
   private log(msg: string): void {
