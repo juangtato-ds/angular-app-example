@@ -3,8 +3,16 @@
 <app-page-section>
   <app-page-section-title>Datos de Entrada</app-page-section-title>
   <p>Copia-pega tus datos</p>
-  <div>
-    <textarea [(ngModel)]="json"></textarea>
+  <div class="form-group">
+    <textarea [formControl]="json"></textarea>
+    <div class="feedback" *ngIf="json.errors">
+      <ng-container *ngIf="json.errors['required']">
+        No puede estar vacío
+      </ng-container>
+      <ng-container *ngIf="json.errors['json']">
+        Formato JSON inválido
+      </ng-container>
+    </div>
   </div>
   <div>
     <button (click)="parseToSqlInsert()">

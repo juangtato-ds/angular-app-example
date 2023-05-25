@@ -59,7 +59,7 @@ h2 {
   padding: 10px;
 }
 
-form .form-group {
+/* form  */ .form-group {
   display: block;
   margin-bottom: 12px;
 
@@ -73,6 +73,7 @@ form .form-group {
   }
 
   input,
+  textarea,
   select {
     min-width: 100px;
     padding: 5px;
