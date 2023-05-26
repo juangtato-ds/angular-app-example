@@ -39,7 +39,7 @@ export class IdentityComponent implements OnInit {
   updateIdentity(): void {
     this.sessionService.setIdentity(this.userList.find(v => v.id == this.selectedId));
     this.modalService.modal(
-      'Identidad de sesión actualizada', { type: ModalType.ERROR }
+      'Identidad de sesión actualizada', { type: ModalType.SUCCESS }
     ).promise.then(
       () => this.router.navigateByUrl('/')
     );
