@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+
+// https://meyerweb.com/eric/tools/css/reset/
+@import './reset';
+
+
+.layout {
+  min-height: 100vh;
+  width: 100vw;
+
+  .layout-header {
+    height: 50px;
+    background-color: orange;
+  }
+
+  .layout-sidenav {
+    min-height: calc(100vh - 50px);
+    display: flex;
+
+    .layout-sidenav-menu {
+      width: 300px;
+      background-color: lightcoral;
+    }
+
+    main {
+      min-height: calc(100vh - 50px);
+      background-color: lightcyan;
+      flex-grow: 1;
+    }
+  }
+}
+
+.usuarios {
+  display: flex;
+
+  .usuarios-forms {
+    margin: 10px;
+  }
+}
+
+
+h1 {
+  font-size: 200%;
+  font-weight: bolder;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding: 15px 0px 8px 0px;
+}
+
+h2 {
+  font-size: 150%;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.section {
+  border: 2px double gray;
+  margin: 20px;
+  padding: 10px;
+}
+
+/* form  */ .form-group {
+  display: block;
+  margin-bottom: 12px;
+
+  label {
+    display: block;
+  }
+
+  .feedback {
+    display: none;
+    color: red;
+  }
+
+  input,
+  textarea,
+  select {
+    min-width: 100px;
+    padding: 5px;
+
+    &.ng-touched {
+      border-color: orange;
+    }
+
+    &.ng-invalid+.feedback {
+      display: block;
+    }
+
+    &:invalid+.feedback {
+      color: purple;
+    }
+  }
+
+}
+
+button {
+  cursor: pointer;
+}
+
+b {
+  font-weight: bolder;
+}
