@@ -13,10 +13,34 @@ export class SwapiService {
   constructor(private http: HttpClient) { }
 
   getData(id: number): Observable<Gente> {
-    // return this.http.get<Gente>(SwapiService.API_PEOPLE_GET+`${id}`);
     return this.http.get<GenteBackend>(SwapiService.API_PEOPLE_GET + `${id}`).pipe(
       map(v => this.myAdaptor(v))
     );
+
+  }
+
+
+  // Ejemplo para recuperar datos empleando fetch (javascript puro)
+  fetchData(id: number): Promise<Gente> {
+
+    return new Promise<Gente>((resolve, reject) => {
+      fetch(SwapiService.API_PEOPLE_GET + `${id}`)
+        .then( response => {
+          if(!response.ok)                          //Si la peticion falla
+            throw new Error('Error en mi fetch');   //Lanzamos el error
+          console.log('Repuesta de mi promesa');
+          console.log(response);
+          return (response.json() as Promise<GenteBackend>);
+        })
+        .then( data => {
+          console.log('Mis datos');
+          console.log(data);
+          resolve(this.myAdaptor(data));           //Resolvemos al promesa
+        })
+        .catch( error => {                         //Capturamos el error
+          reject(error);
+        })
+    })
 
   }
 
