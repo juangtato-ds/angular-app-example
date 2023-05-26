@@ -8,7 +8,7 @@ import {
   Validators
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { UserRole, UserIdentity } from 'jgt-core';
+import { UserRole, UserIdentity, NewUserIdentity } from 'jgt-core';
 
 
 function roleValidator(control: AbstractControl): ValidationErrors | null {
@@ -43,7 +43,7 @@ export class IdentityService {
   }
 
   create(identity: UserIdentity): Observable<UserIdentity> {
-    return this.http.post<UserIdentity>(IdentityService.API_URL, identity).pipe(
+    return this.http.post<UserIdentity>(IdentityService.API_URL, this.newUserIdentityMapper(identity)).pipe(
       tap(v => this.userMap.set(v.id, v))
     );
   }
@@ -91,6 +91,15 @@ export class IdentityService {
     this.userMap.clear();
     for (const user of userList) {
       this.userMap.set(user.id, user);
+    }
+  }
+
+  private newUserIdentityMapper(identity: UserIdentity): NewUserIdentity {
+    return {
+      name: identity.name,
+      role: identity.role,
+      attributes: identity.attributes,
+      info: identity.info
     }
   }
 }

@@ -4,7 +4,7 @@ export enum UserRole {
   ANONYMOUS = 'anonymous'
 }
 
-export const userRoleMap: {[key: string]: UserRole} = {
+export const userRoleMap: { [key: string]: UserRole } = {
   admin: UserRole.ADMIN,
   user: UserRole.USER,
   anonymous: UserRole.ANONYMOUS
@@ -16,8 +16,11 @@ export const userRoleList = [
   UserRole.ANONYMOUS
 ];
 
-export interface UserIdentity {
+export interface UserIdentity extends NewUserIdentity {
   id: number;
+}
+
+export interface NewUserIdentity {
   name: string;
   role: UserRole;
   attributes: Array<string>;
