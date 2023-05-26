@@ -29,7 +29,9 @@ export class SessionInterceptor implements HttpInterceptor {
         const identity = this.sessionService.getIdentity();
         const token = this.sessionService.getIdentityToken();
         if (this.validRoles.has(identity.role) && token){
-          request.headers.set('API-Authorization', token);
+          request = request.clone({
+            headers: request.headers.set('API-Authorization', token)
+          });
         } else {
           throw new Error(`No valid access to ${request.url} with role ${identity.role} (or no token)`);
         }
