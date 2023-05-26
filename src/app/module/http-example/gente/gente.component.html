@@ -6,7 +6,7 @@
         <ul>
             <li>
                 {{ persona.name }} - {{ persona.gender }} - {{ persona.height }}cm -
-                {{ persona.mass }}Kg - <a [href]="persona.homeworld" target="_blank">Plantea natal</a>" -
+                {{ persona.mass }}Kg - {{ persona.born }} - <a [href]="persona.homeworld" target="_blank">Plantea natal</a>" -
                 <ng-container *ngIf="persona.species.length > 0; else desconocida">
                     <ng-container *ngFor="let specie of persona.species">
                         {{ specie }}

@@ -9,9 +9,10 @@ import { Subscription } from 'rxjs';
   templateUrl: './modificar-usuario.component.html',
   styleUrls: ['./modificar-usuario.component.scss']
 })
-export class ModificarUsuarioComponent implements OnDestroy {
+export class ModificarUsuarioComponent implements  OnDestroy {
 
   private susbcription: Subscription;
+  private lastID: number = 0;
   form = this.usuariosService.getForm();
 
   @Input()
@@ -23,13 +24,18 @@ export class ModificarUsuarioComponent implements OnDestroy {
 
   constructor(private usuariosService: UsuariosService) {
     this.susbcription = this.form.controls.id.valueChanges.subscribe( id => {
-      this.cargarInfoUsuario(id);
+      // Este IF evita que se llame de modo recursivo el metodo cargarInfo ya que el propio metodo produce un valueChantes sobre id
+      if(id != this.lastID){    
+        this.lastID = id;
+        this.cargarInfoUsuario(id); 
+      } 
     })
   }
 
   cargarInfoUsuario(id: number): void {
 
     const usuario = this.usuarios[id - 1];
+    console.log(usuario);
     if (usuario) {
       this.form.setValue(usuario);
     } else {

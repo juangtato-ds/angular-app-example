@@ -19,7 +19,7 @@ export class InputInterceptor implements HttpInterceptor {
       return next.handle(request).pipe(
         map(response => {
           if (response.type != 0 && response instanceof HttpResponse<any> && Array.isArray(response.body)) {
-            console.log('Aqui va mi respuesta')
+            console.log('Aqui va mi respuesta, es instancia de String')
 
             const nuevaRespuesta = response.clone({
               body: [
@@ -38,8 +38,6 @@ export class InputInterceptor implements HttpInterceptor {
     else
       return next.handle(request);
   }
-
-
 
 }
 

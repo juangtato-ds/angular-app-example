@@ -40,7 +40,6 @@ import { InputInterceptor } from './interceptors/input.interceptor';
 
   ],
   providers: [
-    HttpClient,
 
     SwapiService,
     UsuariosService,

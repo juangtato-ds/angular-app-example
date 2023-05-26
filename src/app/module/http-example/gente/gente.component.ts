@@ -18,10 +18,12 @@ export class GenteComponent implements OnInit {
       next: (data) => {
         console.log(data);
         this.persona = data;
+        // this.persona.born = data.birth_year;
       },
       error: (e) => console.log(e),
       complete: () => console.info('complete')
     })
+
   }
 
 }
